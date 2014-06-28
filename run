@@ -47,10 +47,7 @@ $INITDIR/uml quiet mem=2G rootfstype=hostfs rootflags=/ ro \
 	init=$INITDIR/init LOGDIR="$LOGDIR" \
 	<$STDIN >$STDOUT 2>$STDERR
 
-# Due to a weird behavior of usermodelinux, sometimes it will kill the
-# whole process group, and we won't have to kill tail. Duh.
-[ "$TAILPID" ] && [ -d /proc/$TAILPID ] && 
-	/bin/kill -9 $TAILPID >/dev/null 2>/dev/null
+/bin/kill -9 $TAILPID >/dev/null 2>/dev/null
 
 echo "Killed tail"
 
