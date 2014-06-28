@@ -53,5 +53,6 @@ echo "Killed tail"
 
 STATUS=""
 [ -f "$LOGDIR/status" ] && STATUS="$(cat $LOGDIR/status)"
+echo "Got here"
 [ "$STATUS" ] && exit $STATUS
 exit 255
